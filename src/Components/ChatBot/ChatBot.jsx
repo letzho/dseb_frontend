@@ -36,21 +36,7 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
         setInputValue(e.target.value)
     }
 
-    const handleFileUpload = async (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
-        
-        try {
-            const response = await fetch('http://localhost:8000/upload', {
-                method: 'POST',
-                body: formData
-            });
-            const data = await response.json();
-            console.log('File processed:', data);
-        } catch (error) {
-            console.error('Error uploading file:', error);
-        }
-    };
+    
 
     const sendMessage = async () => {
         if (inputValue.trim() === '') return;
@@ -100,7 +86,7 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
             }, 500);
 
             // Send query to backend
-            const response = await fetch('https://dsebchat-backend-a4639a67bf55.herokuapp.com/query', {
+            const response = await fetch('http://localhost:8000/query', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -231,7 +217,7 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
         <div className="chat-window">
             <div className="chat-title">
                 <h3>Chat with Course Advisor</h3>
-                <Button variant="outline-primary" onClick={handleNewChatClick}></Button>
+                
                 <i className="bx bx-menu" onClick={()=>setIsMenuOpen(true)}></i>
             </div>
             <div className="chat">
