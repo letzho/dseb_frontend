@@ -100,7 +100,11 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
             }, 500);
 
             // Send query to backend
+<<<<<<< HEAD
             const response = await fetch('http://localhost:8000/query', {
+=======
+            const response = await fetch('https://dsebchat-backend-a4639a67bf55.herokuapp.com/query', {
+>>>>>>> origin/main
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
