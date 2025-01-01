@@ -41,7 +41,7 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
         formData.append('file', file);
         
         try {
-            const response = await fetch('https://dsebchat-backend-a4639a67bf55.herokuapp.com/api/endpoint', {
+            const response = await fetch('http://localhost:8000/upload', {
                 method: 'POST',
                 body: formData
             });
@@ -230,7 +230,8 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
         </div>
         <div className="chat-window">
             <div className="chat-title">
-                <h3>Chat with Course</h3>
+                <h3>Chat with Course Advisor</h3>
+                <Button variant="outline-primary" onClick={handleNewChatClick}></Button>
                 <i className="bx bx-menu" onClick={()=>setIsMenuOpen(true)}></i>
             </div>
             <div className="chat">

@@ -51,13 +51,51 @@
     margin-right: 1rem;
 }
 
-@media (max-width: 900px) {
+@media screen  and (max-width: 900px) {
     .user-profile {
-        flex-direction: row;
-        border-radius: 30px;
-        gap: 0.5rem;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        gap: 0.1rem;
         padding: 0.1rem;
     }
+
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+    }  
+
+
+    .user-name {
+        color: white;
+        font-size: 0.7rem;
+      }
+
+      .sign-out-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.7rem;
+      }
+}
+
+@media screen  and (max-width: 500px) {
+    .user-profile {
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        gap: 0.1rem;
+        padding: 0.1rem;
+    }
+
+    .user-avatar {
+        width: 30px;
+        height: 30px;
+    }   
 
     .user-name {
         color: white;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import SignInForm from './Components/SignInForm/SignInForm';
 import SignUpForm from './Components/SignUpForm/SignUpForm';
@@ -9,6 +10,7 @@ import UserProfile from './Components/UserProfile/UserProfile';
 import { auth } from './Components/firebaseauth/firebaseConfig';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
+
 
 const App = () => {
   const [user, setUser] = useState(() => {
