@@ -41,7 +41,7 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
         formData.append('file', file);
         
         try {
-            const response = await fetch('https://dsebchat-d0f5d8b05387.herokuapp.com/upload', {
+            const response = await fetch('https://dsebchat-backend-a4639a67bf55.herokuapp.com/api/endpoint', {
                 method: 'POST',
                 body: formData
             });
