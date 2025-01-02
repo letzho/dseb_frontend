@@ -68,7 +68,7 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
             let currentMessages = [...messages];
             let chatId = activeChat;
 
-            // Create new chat if none exists
+            
             if (!activeChat) {
                 const newChat = await onNewChat();
                 if (!newChat) return;
@@ -126,13 +126,13 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
                 timestamp: new Date().toLocaleTimeString()
             };
 
-            // Update messages and chats with AI response
+            
             const finalMessages = [...currentMessages, aiResponse];
             
-            // Update both states atomically
+            
             setMessages(finalMessages);
             
-            // Update chat history
+            
             setChats(prevChats => {
                 const updatedChats = prevChats.map(chat => 
                     chat.id === chatId
@@ -243,22 +243,22 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
                     <div key={index} className={msg.type === "prompt" ? "prompt" : "response"}>
                         {msg.type === "response" ? (
                             <>
-                                {/* Split the message into lines */}
+                               
                                 {msg.text.split('\n').map((line, idx) => {
-                                    // Check if the line starts with "•"
+                                    
                                     if (line.startsWith('•')) {
                                         return (
                                             <ul key={idx}>
-                                                <li>{line.replace('•', '').trim()}</li> {/* Remove bullet and trim whitespace */}
+                                                <li>{line.replace('•', '').trim()}</li> 
                                             </ul>
                                         );
                                     } else {
-                                        return <p key={idx}>{line}</p>; // Render other lines as paragraphs
+                                        return <p key={idx}>{line}</p>; 
                                     }
                                 })}
                             </>
                         ) : (
-                            <span>{msg.text}</span> // Render prompt messages as plain text
+                            <span>{msg.text}</span> 
                         )}
                         <span>{msg.timestamp}</span>
                     </div>
