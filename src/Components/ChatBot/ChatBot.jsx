@@ -13,6 +13,7 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
     const [showEmojiPicker,setShowEmojiPicker]=useState(false)
     const [isMenuOpen,setIsMenuOpen]=useState(false)
     const [typingDots, setTypingDots] = useState('');
+    const [sliderPosition, setSliderPosition] = useState(250);
 
     const chatEndRef=useRef(null)
 
@@ -36,7 +37,23 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
         setInputValue(e.target.value)
     }
 
-    
+    const handleMouseDown = (e) => {
+        e.preventDefault();
+        const startX = e.clientX;
+
+        const handleMouseMove = (moveEvent) => {
+            const newWidth = Math.max(200, sliderPosition + (moveEvent.clientX - startX)); 
+            setSliderPosition(newWidth);
+        };
+
+        const handleMouseUp = () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
+    };
 
     const sendMessage = async () => {
         if (inputValue.trim() === '') return;
@@ -214,9 +231,10 @@ const ChatBot = ({chats,setChats,activeChat,setActiveChat,onNewChat}) => {
             ))}
 
         </div>
+        <div className="slider" onMouseDown={handleMouseDown}></div>
         <div className="chat-window">
             <div className="chat-title">
-                <h3>Chat with Course Advisor</h3>
+                <h3>Course Advisor</h3>
                 
                 <i className="bx bx-menu" onClick={()=>setIsMenuOpen(true)}></i>
             </div>

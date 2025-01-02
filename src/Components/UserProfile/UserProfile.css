@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.5rem;
+  padding: 1.0rem;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 50px;
@@ -41,6 +41,7 @@
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.6rem;
 }
 
 .sign-out-btn:hover {
@@ -56,8 +57,10 @@
         flex-direction: column;
         align-items: center;
         border-radius: 20px;
-        gap: 0.1rem;
+        gap: 0.2rem;
         padding: 0.1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .user-avatar {
@@ -72,7 +75,7 @@
       }
 
       .sign-out-btn {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.5rem;
         border: none;
         border-radius: 20px;
         background: rgba(255, 255, 255, 0.2);
@@ -89,7 +92,9 @@
         align-items: center;
         border-radius: 20px;
         gap: 0.1rem;
-        padding: 0.1rem;
+        padding: 0.2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .user-avatar {
@@ -103,13 +108,13 @@
       }
 
       .sign-out-btn {
-        padding: 0.5rem 1rem;
+        padding: 0.3rem 0.6rem;
         border: none;
         border-radius: 20px;
         background: rgba(255, 255, 255, 0.2);
         color: white;
         cursor: pointer;
         transition: all 0.3s ease;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
       }
 }

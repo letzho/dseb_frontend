@@ -5,13 +5,21 @@
     overflow: hidden;
 }
 .chat-list{
-    width:30%;
+    /* width:25%; */
+    width:25%;
+    min-width:200px;
     height:100%;
-    background-color: #0d111a;
+    flex-shrink: 0;
+    flex-basis: 25%;
+    background-color: #242525;
     padding:1rem;
     display:flex;
     flex-direction: column;
     row-gap:1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: width 0.2s;
+
 }
 
 .chat-list-header{
@@ -20,7 +28,7 @@
     align-items: center;
     justify-content:space-between;
     padding:2rem 1rem;
-    color:#7b8ebc;
+    color:#f7f7f9;
 
 }
 
@@ -28,6 +36,7 @@
     font-family:"Exo 2",sans-serif;
     font-size:2rem;
     text-transform: uppercase;
+    font-weight: 800;
 }
 
 .chat-list-header i{
@@ -38,27 +47,29 @@
 
 .chat-list-item{
     width:100%;
-    height:5rem;
+    height:70px;
     
-    background-color: #131927;
+    background-color:  #242525;
     padding:.5rem 1rem;
-    border-radius: .5rem;
+    border-radius: 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 .5rem .5rem rgba(0,0,0,.1);
+    /* box-shadow: 0 .5rem .5rem rgba(0,0,0,.1); */
+    cursor: pointer;
 
 }
 
 .chat-list-item.active{
-    background: linear-gradient(135deg,#f42f5f,
-    #edaf43);
+    /* background: linear-gradient(135deg,#030575,
+    #199003); */
+    background-color: #444545;
 
 }
 
 .chat-list-item h4{
-    font-size:1.4rem;
-    font-weight:300;
+    font-size:1.2rem;
+    font-weight:500;
     color:#ddd
 
 }
@@ -69,12 +80,14 @@
 
 .chat-list-item i{
     font-size: 2.0rem;
-    color:#f42f5f;
+    color:#f47a23e2;
     cursor:pointer;
 }
 
+
 .chat-window{
-    width:70%;
+    /* width:70%; */
+    flex-grow: 1; /* Allow chat window to grow */
     height:100%;
     display:flex;
     flex-direction:column;
@@ -94,7 +107,7 @@
 
 .chat-title h3{
     font-family:"Exo 2",sans-serif;
-    font-size:0.9rem;
+    font-size:1.3rem;
     text-transform: uppercase;
     color:#fff;
     letter-spacing: 0.1rem;
@@ -119,30 +132,39 @@
     display:none;
 }
 
-.prompt,.response{
+.prompt{
     max-width: 80%;
     padding:2rem;
     font-size:1.6rem;
-    color:#fff;
+    color:#0f0e00;
     box-shadow: 0 1rem 3rem rgba(0,0,0,0.1);
     word-wrap: break-word;
-}
-
-.prompt{
+    font-weight: 700;
     align-self: flex-end;
-    background: linear-gradient(135deg,#f42f5f,
-    #edaf43);
+    background: #3f7ca8;
     border-radius: 3rem 0 3rem 3rem;
     text-align: right;
+    
 }
 
 .response{
+    max-width: 80%;
+    padding:2rem;
+    font-size:1.6rem;
+    font-weight: 400;
+    color:#ffffff;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.1);
+    word-wrap: break-word;
     align-self: flex-start;
-    background: linear-gradient(135deg,#04fdd3,
-    #0525f0);
+    /* background: linear-gradient(135deg,#0453fd,
+    #030d4e); */
+    background: #020c48;
     border-radius:0 3rem 3rem 3rem;
     text-align: left;
+
 }
+
+
 
 .prompt span,.response span{
     font-family:"Exo 2",sans-serif;
@@ -155,7 +177,7 @@
 .typing{
     font-family:"Exo 2",sans-serif;
     font-size:1.6rem;
-    color:#7b8ebc;
+    color:#1dadea;
     margin-top:auto;
     margin-bottom: -3rem;
 
@@ -241,6 +263,8 @@
     display: none;
 }
 
+
+
 @media screen and (max-width: 900px) {
     .chat-app {
         flex-direction: column;
@@ -261,7 +285,7 @@
     .chat-list-header h2{
         padding:1rem 0.5rem;
         justify-content: space-between;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .chat-list-item{
         padding:0.5rem 1rem;
@@ -270,11 +294,13 @@
     }
 
     .chat-list-item h4{ 
-        font-size: 1.2rem;}
+        font-size: 1.0rem;}
     
     .chat-list.open {
         transform: translateX(0);
     }
+
+    
 
     .chat-window {
         width: 100%;
@@ -286,9 +312,10 @@
     }
 
     .chat-title h3 {
-        padding-left: 3rem;
-        font-size: 0.7rem;
+        padding-left: 5rem;
+        font-size: 1.1rem;
         white-space: normal
+        
     }
 
     .chat-title i.bx-menu {
@@ -392,7 +419,7 @@
 
     .chat-title h3 {
         padding-left: 2.5rem;
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 
     .chat-title i.bx-menu {
